@@ -1,0 +1,121 @@
+/* не на гридах: */
+
+/* html,
+body {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+}
+
+.header {
+  height: 50px;
+}
+
+.footer {
+  height: 100px;
+}
+
+.content {
+  display: flex;
+}
+
+.column_pos_left,
+.column_pos_right {
+  width: 20%;
+}
+
+.column_pos_center {
+  width: 60%;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  margin-bottom: -100px;
+}
+
+.footer-buffer {
+  height: 100px;
+} */
+
+/* на гридах: */
+
+html,
+body {
+  height: 100%;
+}
+
+/* Делается это для того, чтоб можно было Ваш блок .wrapper 
+растянуть на всю высоту экрана. Если высота задана в процентах, 
+то проценты берутся от высоты родительского 
+контейнера(html => body => .wrapper). 
+Если явно не задавать высоту родителям .wrapper 
+браузер установит высоту этого блока в зависимости 
+от высоты его содержимого. И как уже писали раньше 
+это необходимо для прижимания футера к низу страницы 
+в тех случаях, когда высота контента не позволяет этого сделать */
+
+.grid {
+  min-height: 100%;
+  display: grid;
+}
+
+/* пишу как и что будет в строках и колонках */
+/* grid-template-areas:  */
+/* 'h h h' это значит, что я займу две колонки */
+/* 'n c'; nav займёт одну колонку, content займёт вторую колонку */
+/* говорим сколько строк у нас будет:
+ типа одна строка для хэдера,
+ вторая строка для всего остального */
+
+.grid {
+  grid-template-areas: 'header header header' 'nav main aside' 'footer footer footer';
+}
+
+/* колонок тоже будет две: одна для сайдбара слева, 
+  вторая для всего остального справа */
+/* одна колонка будет занимать 2 фракции,
+  вторая = 10 фракциям (равных частей) */
+/* grid-template-columns: 2fr 10fr; */
+/* grid-gap - это растояние между элементами */
+/* grid-gap: 10px; */
+
+.grid {
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+/* то есть первая строка высотой 60px, 
+  вторая строка равна одной фракции 1fr */
+
+.grid {
+  grid-template-rows: 50px auto 100px;
+}
+
+/* Свойство grid-column-gap определяет размер ширины линий. Вы можете думать об этом, как о настройке ширины отступов между столбцами. */
+/* CSS свойство grid-row-gap определяет расстояние (промежуток) между строками в макете сетки. */
+
+.grid {
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+}
+
+.header {
+  background-color: green;
+}
+
+.main {
+  background-color: rgb(42, 68, 42);
+}
+
+.nav {
+  background-color: rgb(154, 211, 154);
+}
+
+.aside {
+  background-color: rgb(115, 255, 115);
+}
+
+.footer {
+  background-color: rgb(211, 136, 136);
+}
