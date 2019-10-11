@@ -134,20 +134,45 @@ body {
   grid-template-rows: repeat(2, 288px);
   grid-column-gap: 10px;
   grid-row-gap: 15px; */
-  /* min-height: 100%; */
+/* min-height: 100%; */
 /* } */
 
 /* вместо фиксированного количество столбцов,
 определим их автоматически,
 заменив 3 на auto-fit. */
+/* Теперь сетка меняет количество столбцов в зависимости 
+от ширины контейнера.
+Браузер пытается разместить как можно больше столбцов 
+шириной 100 пикселей в контейнере. */
+/* Однако,
+если мы захардкодим все столбцы ровно на 100 пикселей,
+мы никогда не получим необходимую гибкость,
+так как они редко будут заполнять всю ширину. Как вы можете видеть на гифке выше,
+сетка часто оставляет пустое пространство с правой стороны. */
+/* Конечный ингредиент,
+который нам нужен,
+чтобы исправить это,
+называется minmax (). Мы просто заменим 100px на minmax (100px, 1fr). */
+/* .grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, 440px);
+  grid-template-rows: repeat(2, 288px); */
+/* grid-column-gap: 10px; */
+/* grid-row-gap: 15px;  */
+/* } */
 
 .grid {
   display: grid;
   grid-gap: 5px;
-  grid-template-columns: repeat(auto-fit, 440px);
+  grid-template-columns: repeat(auto-fit, minmax(440px, 1fr));
   grid-template-rows: repeat(2, 288px);
-  /* grid-column-gap: 10px; */
-  /* grid-row-gap: 15px;  */
+}
+
+.grid > div > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .header {
