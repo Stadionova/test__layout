@@ -41,10 +41,10 @@ body {
 
 /* на гридах: */
 
-html,
+/* html,
 body {
   height: 100%;
-}
+} */
 
 /* Делается это для того, чтоб можно было Ваш блок .wrapper 
 растянуть на всю высоту экрана. Если высота задана в процентах, 
@@ -56,10 +56,15 @@ body {
 это необходимо для прижимания футера к низу страницы 
 в тех случаях, когда высота контента не позволяет этого сделать */
 
-.grid {
+/* .grid {
   min-height: 100%;
   display: grid;
-}
+  grid-template-areas: 'header header header' 'nav main aside' 'footer footer footer';
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 50px auto 100px;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+} */
 
 /* пишу как и что будет в строках и колонках */
 /* grid-template-areas:  */
@@ -69,9 +74,9 @@ body {
  типа одна строка для хэдера,
  вторая строка для всего остального */
 
-.grid {
+/* .grid {
   grid-template-areas: 'header header header' 'nav main aside' 'footer footer footer';
-}
+} */
 
 /* колонок тоже будет две: одна для сайдбара слева, 
   вторая для всего остального справа */
@@ -85,23 +90,64 @@ body {
 которую мы хотим,
 поскольку эта сетка всегда будет иметь ширину в три столбца. Мы хотим,
 чтобы наша сетка меняла количество столбцов в зависимости от ширины контейнера. */
-.grid {
+/* .grid {
   grid-template-columns: 1fr 3fr 1fr;
-}
+} */
 
 /* то есть первая строка высотой 60px, 
   вторая строка равна одной фракции 1fr */
 
-.grid {
+/* .grid {
   grid-template-rows: 50px auto 100px;
-}
+} */
 
 /* Свойство grid-column-gap определяет размер ширины линий. Вы можете думать об этом, как о настройке ширины отступов между столбцами. */
 /* CSS свойство grid-row-gap определяет расстояние (промежуток) между строками в макете сетки. */
 
-.grid {
+/* .grid {
   grid-column-gap: 10px;
   grid-row-gap: 15px;
+} */
+
+/* Мы начнем с функции repeat (). 
+Это мощный способ указания столбцов и строк. 
+Давайте возьмем исходную сетку и изменим ее 
+используя repeat (): */
+/* Другими словами, repeat(3, 100px) идентично 100px 100px 100px. 
+В первом параметре указано, сколько столбцов или строк вы хотите, 
+а второе определяет их ширину, поэтому это даст нам тот же 
+самый макет, с которого мы начали: */
+
+/* .grid {
+  min-height: 100%;
+  display: grid;
+  grid-template-areas: 'header header header' 'nav main aside' 'footer footer footer';
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 50px auto 100px;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+} */
+
+/* .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 440px);
+  grid-template-rows: repeat(2, 288px);
+  grid-column-gap: 10px;
+  grid-row-gap: 15px; */
+  /* min-height: 100%; */
+/* } */
+
+/* вместо фиксированного количество столбцов,
+определим их автоматически,
+заменив 3 на auto-fit. */
+
+.grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, 440px);
+  grid-template-rows: repeat(2, 288px);
+  /* grid-column-gap: 10px; */
+  /* grid-row-gap: 15px;  */
 }
 
 .header {
@@ -118,6 +164,10 @@ body {
 
 .aside {
   background-color: rgb(115, 255, 115);
+}
+
+.aside_2 {
+  background-color: rgb(162, 189, 162);
 }
 
 .footer {
