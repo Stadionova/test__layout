@@ -228,3 +228,48 @@ body {
   width: 50px;
   height: 50px;
 }
+
+/* float test part */
+
+.wrapper-winni {
+  background-color: aquamarine;
+  border: 1px solid;
+  width: 600px;
+  height: 700px;
+}
+
+.block-winni {
+  margin-bottom: 120px;
+}
+
+.block-text-1 {
+  float: left;
+  width: 500px;
+}
+
+.block-text-1 img {
+  float: right;
+}
+
+.block-text-2 {
+  float: left;
+  width: 500px;
+}
+
+.block-text-2 img {
+  float: left;
+}
+
+.block-text-3 {
+  float: right;
+  width: 500px;
+}
+
+.block-text-3 img {
+  float: right;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+}
