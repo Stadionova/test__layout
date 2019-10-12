@@ -273,3 +273,21 @@ img {
   width: 100px;
   height: 100px;
 }
+
+img.right {
+  float: right;
+  margin: 5px 0 5px 10px;
+}
+
+img.left {
+  float: left;
+  margin: 5px 10px 5px 0;
+}
+
+.winni-puh {
+  width: 500px;
+}
+
+.winni-puh img {
+  border: 1px solid black;
+}
